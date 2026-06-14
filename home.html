@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Voleti - Java Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Century Gothic", 'Lato', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Sticky Navigation Bar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    letter-spacing: 0.5rem;
+}
+
+/* Home Section */
+.home-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ddd 0%, #3498db 100%);
+    color: white;
+    text-align: center;
+}
+
+.home-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-secondary {
+    background: #2c3e50;
+    color: white;
+}
+
+/* About Section */
+.about-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: justify;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skill-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Education Section */
+.education-section {
+    background: #eee;
+    text-align: center;
+}
+
+.education-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.education-card {
+    background: #fff;
+    width: 350px;
+    min-height: 280px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    font-family: "Century Gothic", 'Lato', sans-serif;
+}
+
+.education-card h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.education-card p {
+    margin: 12px 0;
+    line-height: 1.8;
+    font-size: 15px;
+    color: #333;
+}
+
+.education-card strong {
+    color: black;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.project-tech {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.project-desc {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-features ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.project-features li {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+}
+
+.project-links .btn {
+    flex: 1;
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-content {
+    text-align: center;
+}
+
+.contact-info {
+    margin: 30px 0;
+}
+
+.contact-item {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-btn {
+    padding: 12px 30px;
+    background: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.social-btn:hover {
+    background: #3498db;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        gap: 15px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .education-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<body>
+    <!-- Navigation Bar (Sticky) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">AKASH VOLETI</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <h2>AKASH VOLETI</h2>
+            <p class="tagline">Entry Level Java Developer</p>
+            <p class="description">B.Tech (AI&ML) | Java, Python, SQL, HTML/CSS</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">ABOUT</h2>
+        <div class="about-content">
+            <p>
+                I'm a B.Tech graduate with strong fundamentals in Core Java, OOP concepts, SQL, and Git, 
+                complemented by web development skills in HTML, CSS, and JavaScript. Built practical projects 
+                including a Heart Disease Prediction and House Price Prediction system using machine learning, 
+                and a Student Data Management System with SQL database and JDBC for data operations. Strong 
+                problem-solving abilities, teamwork mindset, and quick learner eager to contribute to software 
+                development projects. Aspiring to grow into a team leadership position while building robust 
+                backend applications and scalable Java solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <h2 class="section-title">EDUCATION</h2>
+        
+        <div class="education-row">
+            <div class="education-card">
+                <h2>B.Tech</h2>
+                <p><strong>Branch:</strong> Computer Science (AI&ML)</p>
+                <p><strong>College:</strong> KIET Group of Institutions</p>
+                <p><strong>Year:</strong> 2020 - 2024</p>
+                <p><strong>Percentage:</strong> 75%</p>
+            </div>
+
+            <div class="education-card">
+                <h2>Intermediate</h2>
+                <p><strong>Branch:</strong> MPC</p>
+                <p><strong>College:</strong> NARAYANA JUNIOR COLLEGE</p>
+                <p><strong>Year:</strong> 2018 - 2020</p>
+                <p><strong>Percentage:</strong> 85%</p>
+            </div>
+
+            <div class="education-card">
+                <h2>SSC</h2>
+                <p><strong>School:</strong> DURGA PRASAD SCHOOL</p>
+                <p><strong>Year:</strong> 2017 - 2018</p>
+                <p><strong>Percentage:</strong> 90%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>🐍 Python</h3>
+                <p>Level: 85%</p>
+                <p>Django, Flask, ML models</p>
+                <p>Pandas, NumPy, TensorFlow</p>
+                <p>3 years experience</p>
+            </div>
+            <div class="skill-card">
+                <h3>🌐 HTML/CSS</h3>
+                <p>Level: 90%</p>
+                <p>20+ websites built</p>
+                <p>Flexbox, Grid, Animations</p>
+                <p>4 years experience</p>
+            </div>
+            <div class="skill-card">
+                <h3>⚛️ React</h3>
+                <p>Level: 75%</p>
+                <p>E-commerce app, Dashboard</p>
+                <p>Redux, React Router, Hooks</p>
+                <p>2 years experience</p>
+            </div>
+            <div class="skill-card">
+                <h3>📦 Node.js</h3>
+                <p>Level: 70%</p>
+                <p>REST API, Chat app</p>
+                <p>Express, MongoDB, Socket.io</p>
+                <p>2 years experience</p>
+            </div>
+            <div class="skill-card">
+                <h3>☕ Java</h3>
+                <p>Core Java, OOP</p>
+                <p>JDBC, SQL integration</p>
+                <p>Student Data Management</p>
+            </div>
+            <div class="skill-card">
+                <h3>💾 SQL</h1>
+                <p>Database management</p>
+                <p>JDBC connectivity</p>
+                <p>Student Data System</p>
+            </div>
+            <div class="skill-card">
+                <h3>🔧 Tools</h3>
+                <p>Git, Eclipse</p>
+                <p>Postman</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">PROJECTS</h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1: -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="placeholder">Project Screenshot</div>
+                </div>
+                <div class="project-info">
+                    <h3>Heart Disease Prediction</h3>
+                    <p class="project-tech">Python • Flask • ML • Scikit-learn</p>
+                    <p class="project-desc">
+                        ML-based prediction system using logistic regression 
+                        to detect heart disease risk with 85% accuracy.
+                    </p>
+                    <div class="project-features">
+                        <ul>
+                            <li>✅ Logistic regression model</li>
+                            <li>✅ Flask web interface</li>
+                            <li>✅ Data visualization (matplotlib)</li>
+                            <li>✅ 85% accuracy</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Voletiakash/Heart_Disease_Preiction" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="placeholder">Project Screenshot</div>
+                </div>
+                <div class="project-info">
+                    <h3>House Price Prediction</h3>
+                    <p class="project-tech">Python • ML • Regression</p>
+                    <p class="project-desc">
+                        Predictive system using machine learning to estimate 
+                        house prices based on various features.
+                    </p>
+                    <div class="project-features">
+                        <ul>
+                            <li>✅ Regression model</li>
+                            <li>✅ Python & ML libraries</li>
+                            <li>✅ Data preprocessing</li>
+                            <li>✅ Price prediction API</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Voletiakash/House-price-prediction-using-FLASK" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="placeholder">Project Screenshot</div>
+                </div>
+                <div class="project-info">
+                    <h3>Student Data Management System</h3>
+                    <p class="project-tech">Java • SQL • JDBC</p>
+                    <p class="project-desc">
+                        Complete data management system with SQL database 
+                        and JDBC for CRUD operations on student records.
+                    </p>
+                    <div class="project-features">
+                        <ul>
+                            <li>✅ SQL database integration</li>
+                            <li>✅ JDBC connectivity</li>
+                            <li>✅ CRUD operations</li>
+                            <li>✅ Student record management</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Voletiakash/Student_Data_Management_System" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="placeholder">Project Screenshot</div>
+                </div>
+                <div class="project-info">
+                    <h3>Django Website</h3>
+                    <p class="project-tech">Python • Django • Web</p>
+                    <p class="project-desc">
+                        Full-stack web application built with Django 
+                        framework demonstrating Python web development.
+                    </p>
+                    <div class="project-features">
+                        <ul>
+                            <li>✅ Django framework</li>
+                            <li>✅ Full-stack development</li>
+                            <li>✅ Database models</li>
+                            <li>✅ User authentication</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akashvoleti/django-site" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="placeholder">Project Screenshot</div>
+                </div>
+                <div class="project-info">
+                    <h3>Flask API</h3>
+                    <p class="project-tech">Python • Flask • REST API</p>
+                    <p class="project-desc">
+                        RESTful API built with Flask demonstrating backend 
+                        development and API design skills.
+                    </p>
+                    <div class="project-features">
+                        <ul>
+                            <li>✅ REST API endpoints</li>
+                            <li>✅ Flask framework</li>
+                            <li>✅ JSON responses</li>
+                            <li>✅ API documentation</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/akashvoleti/flask-api" class="btn btn-primary">View Code</a>
+                        <a href="#" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">CONTACT</h2>
+        <div class="contact-content">
+            <p>Interested in working together? Get in touch!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📧 Email:</strong> akashvoleti2002@gmail.com
+                </div>
+                <div class="contact-item">
+                    <strong>📱 Phone:</strong> +91 9505577513
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Location:</strong> Hyderabad, India
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Voletiakash" class="social-btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/akash-voleti-71153a237?" class="social-btn">LinkedIn</a>
+                <a href="mailto:your.email@example.com" class="social-btn">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Akash Voleti. Built with HTML & CSS</p>
+    </footer>
+</body>
+</html>
