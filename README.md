@@ -1,1 +1,1 @@
-# Akash_Portfolio
+A basic Portfolio of me carrying all details about me. This Portfolio helps me to be  quick and easy way to introduce myself to others. This Portfolio consists of Education, skills, projects I did, and contact details. It is designed using HTML and CSS for simple and effortless # Akash_Portfolio
